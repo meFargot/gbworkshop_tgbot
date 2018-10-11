@@ -14,11 +14,9 @@ bot = telebot.TeleBot(TOKEN)
 
 def generate_stickers(m:Message):
     """ Генерируем новый набор стикеров и отправляем в чат
+        НЕ РАБОТАЕТ
     """
     global stickers_to_set
-    #print(stickers_to_set[0])
-    #print(stickers_to_set[0].emoji)
-    #return
     payload = {
         'user_id': m.from_user.id,
         'name': "stkset_by_sergeyrobot",
@@ -39,10 +37,11 @@ def generate_stickers(m:Message):
         }
         r = requests.post(f'{BASE_URL}addStickerToSet', data=payload)
         print(r.json())
-    #bot.send_message(m.chat.id, '')
+
 
 def get_sticker_png(file_id, user_id):
     """ Получаем стикер в png
+        НЕ РАБОТАЕТ ПРАВИЛЬНО
     """
     file_info = bot.get_file(file_id)
     sticker_file = requests.get('https://api.telegram.org/file/bot{0}/{1}'.
@@ -52,7 +51,6 @@ def get_sticker_png(file_id, user_id):
         'png_sticker': sticker_file
     }
     file = requests.post(f'{BASE_URL}uploadStickerFile', data=payload)
-    print(file)
     return file
 
 @bot.message_handler(commands=['start'])
