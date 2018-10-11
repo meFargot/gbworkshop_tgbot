@@ -4,7 +4,7 @@ import telebot
 import requests
 from telebot.types import Message
 
-TOKEN = "687704815:AAESuurG1GElFovYHDzWWMYVduWmx6GZMks"
+TOKEN = ""  # <<<--- ВСТАВИТЬ ТОКЕН
 BASE_URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 stickers_to_set = []
